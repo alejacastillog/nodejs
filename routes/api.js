@@ -4,7 +4,7 @@ var models = require('../models/index');
 //Obtener todos los estudiantes
 
 router.get('/obtenerEstudiante', function(req,res){
-    let Estudiante = models.Estudiantes.findAll()
+    models.Estudiante.findAll()
     .then((lista)=>{
         res.json(lista)
     })
@@ -13,14 +13,52 @@ router.get('/obtenerEstudiante', function(req,res){
     });
 
 });
+//Obtener estudiante por ID
+router.get('/obtenerEstudiante/:id', function(req,res){
+    let idEstudiante = req.params.id;
+    models.Estudiantes.find(
+       { 
+           where: {
+               idEstudiante:{
+               [models.Sequelize.OP.eq]: idEstudiante
+               }
+        }
+           }
+    )
+});
 
+//Eliminar estudiante
+router.get('/eliminarEstudiante/:id', function(req,res){
+    let idEstudiante = req.params.id;
+    models.Estudiantes.find(
+       { 
+           where: {
+               idEstudiante:{
+               [models.Sequelize.OP.eq]: idEstudiante
+               }
+        }
+           }
+    )
+    .then((lista)=>{
+        lista.destroy()
+        .then(()=>{
+            res.json({});
+        })
+        .cath((error)=>{
+           res.json(error);
+        });
+    })
+    .cath((error)=>{
+        res.json(error);
+    });
+});
 //Guardar un estudiante
 
 router.post('/guardarEstudiante',function(req,res){
     let infoEstudiante = {
         "idEstudiante": req.body.nombreEstudiante,
-        "NombreEstudiante": req.body.nombreEstudiante,
-        "EdadEstudiante": req.body.edadEstudiante
+        "nombreEstudiante": req.body.nombreEstudiante,
+        "edadEstudiante": req.body.edadEstudiante
     };
     models.Estudiantes.create(infoEstudiante)
         .then((nuevoEstudiante,creacion)=>{
