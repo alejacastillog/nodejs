@@ -1,17 +1,41 @@
 {
     "development":{
-        "username": "",
-        "passworf": "",
-        "database": "",
-        "host": "",
-        "dialect": "mysql",
-        "operatorsAliases": false 
-
+        "username": "iksikuainikkfo",
+        "password": "b4da12a33b2c3f535273800fdd899d4b6b85dc71ea269d618e71ffee04f45854",
+        "database": "df7lro5gre8qmb",
+        "host":"ec2-50-16-217-122.compute-1.amazonaws.com",
+        "port": 5432,
+        "dialectOptions": {
+            "ssl": true
+        },
+        "ssl": true,
+        "dialect": "postgres",
+        "operatorsAliases": false
     },
     "test":{
-
+        "username": "iksikuainikkfo",
+        "password": "b4da12a33b2c3f535273800fdd899d4b6b85dc71ea269d618e71ffee04f45854",
+        "database": "df7lro5gre8qmb",
+        "host":"ec2-50-16-217-122.compute-1.amazonaws.com",
+        "port": 5432,
+        "dialectOptions": {
+            "ssl": true
+        },
+        "ssl": true,
+        "dialect": "postgres",
+        "operatorsAliases": false
     },
     "production":{
-
+        "username": "iksikuainikkfo",
+        "password": "b4da12a33b2c3f535273800fdd899d4b6b85dc71ea269d618e71ffee04f45854",
+        "database": "df7lro5gre8qmb",
+        "host":"ec2-50-16-217-122.compute-1.amazonaws.com",
+        "port": 5432,
+        "dialectOptions": {
+            "ssl": true
+        },
+        "ssl": true,
+        "dialect": "postgres",
+        "operatorsAliases": false
     }
 }
